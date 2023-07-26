@@ -1,0 +1,11 @@
+.image {
+  display: block;
+
+  &--cover {
+    object-fit: cover;
+  }
+
+  &--contain {
+    object-fit: contain;
+  }
+}

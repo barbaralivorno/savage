@@ -1,0 +1,23 @@
+.form-add-to-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include for-size(tablet-down) {
+    align-items: center;
+
+    .input-number {
+      margin: 2rem auto 3.47rem;
+    }
+  }
+
+  &__button {
+    font-size: 1.75rem;
+    font-weight: 800;
+    padding: 0.5rem 1rem;
+  }
+
+  &__quantity-input {
+    margin-bottom: 0.65rem;
+  }
+}

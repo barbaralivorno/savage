@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "military": {
+      "type": "main-military"
+    }
+  },
+  "order": [
+      "military"
+  ]
+}

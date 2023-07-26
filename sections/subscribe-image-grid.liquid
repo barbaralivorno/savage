@@ -1,0 +1,34 @@
+{% render "picture", 
+  class: "s-subscribe-image-grid__left-image",
+  image: section.settings.left_image,
+  available_sizes: "720, 960",
+  display_sizes: "(max-width: 767px) 100vw, 45vw",
+  fit: "cover"
+%}
+{% render "picture", 
+  class: "s-subscribe-image-grid__right-image",
+  image: section.settings.right_image,
+  available_sizes: "720, 960",
+  display_sizes: "(max-width: 767px) 100vw, 55vw",
+  fit: "cover"
+%}
+
+{% schema %}
+{
+  "name": "Image Grid",
+  "class": "s-subscribe-image-grid",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    }
+  ]
+}
+{% endschema %}

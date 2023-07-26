@@ -1,0 +1,17 @@
+.s-subscribe-hero {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 1rem;
+
+  @include for-size(tablet-down) {
+    padding: 2rem 5vw;
+  }
+
+  @include for-size(phone-only) {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+  }
+}

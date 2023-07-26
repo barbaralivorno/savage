@@ -1,0 +1,66 @@
+.s-social {
+  padding: 3rem 3.55rem 2rem;
+
+  @include for-size(phone-only) {
+    padding: 3.9rem 0 2.6rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__hashtag {
+    color: var(--sj-black);
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.4rem;
+
+    @include for-size(tablet-up) {
+      background-color: var(--sj-white);
+    }
+
+    @include for-size(phone-only) {
+      width: 100%;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+
+      &-icon {
+        @include font-size(xl);
+        line-height: 1em;
+        display: block;
+        color: var(--sj-white);
+      }
+
+      &-text {
+        width: 100%;
+        background-color: var(--sj-white);
+        padding: 0.83rem 0;
+      }
+    }
+  }
+
+  &__message {
+    font-size: 1.35rem;
+    font-weight: 700;
+    display: block;
+    text-align: center;
+    margin-bottom: 7.5rem;
+
+    @include for-size(tablet-down) {
+      margin-bottom: 6rem;
+    }
+
+    @include for-size(phone-only) {
+      margin-bottom: 3.23rem;
+      padding: 0 2.35rem;
+    }
+
+    strong {
+      color: var(--sj-burnt-orange);
+    }
+  }
+}

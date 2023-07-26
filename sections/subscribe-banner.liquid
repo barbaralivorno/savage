@@ -1,0 +1,21 @@
+{% render "picture",
+  class: "s-subscribe-banner__image",
+  image: section.settings.banner_image,
+  available_sizes: "1200, 2400"
+  display_sizes: "75vw"
+%}
+
+{% schema %}
+{
+  "name": "Banner",
+  "class": "s-subscribe-banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    }
+  ]
+}
+{% endschema %}

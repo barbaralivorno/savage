@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "contact": {
+      "type": "main-contact"
+    },
+    "social": {
+      "type": "social"
+    }
+  },
+  "order": [
+    "contact", "social"
+  ]
+}

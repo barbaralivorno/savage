@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-subscribe"
+    },
+    "image_grid": {
+      "type": "subscribe-image-grid"
+    },
+    "content_group": {
+      "type": "subscribe-content-group"
+    },
+    "banner": {
+      "type": "subscribe-banner"
+    }
+  },
+  "order": [
+    "hero", "image_grid", "content_group","banner"
+  ]
+}

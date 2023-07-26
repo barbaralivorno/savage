@@ -1,0 +1,100 @@
+.s-hero-collection {
+  $this: &;
+  min-height: auto;
+
+  &__heading {
+    padding: 0.5em 0.75em;
+    hyphens: auto;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    padding-bottom: 7.75rem;
+    position: relative;
+    z-index: 10;
+
+    @include for-size(tablet-down) {
+      padding-bottom: 5rem;
+    }
+
+    @include for-size(phone-only) {
+      padding: 0 10vw 5rem 10vw;
+      justify-content: space-between;
+    }
+  }
+
+  &__filter-select {
+    margin: 0 1.4rem;
+
+    @include for-size(phone-only) {
+      margin: 0;
+
+      &:nth-child(even) {
+        width: 100%;
+        margin-left: 0.5rem;
+      }
+
+      &:nth-child(odd) {
+        width: 100%;
+        margin-right: 0.5rem;
+      }
+
+      &-input {
+        width: 100%;
+      }
+    }
+  }
+
+  &__wrapper {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left bottom, right bottom;
+
+    @include for-size(phone-only) {
+      background-size: auto 70vh;
+      min-height: 70vh;
+
+      &--jerky {
+        background-position: -10vw top, right -10vw top;
+      }
+    }
+
+    @each $collection in "jerky", "spices", "sauces" {
+      &--#{$collection} {
+        /* prettier-ignore */
+        background-image:
+          -webkit-image-set(
+            url("{{ 'decoration-#{$collection}-left.webp' | asset_img_url: '300x' }}") 1x,
+            url("{{ 'decoration-#{$collection}-left.webp' | asset_img_url: '600x' }}") 2x
+          ),
+          -webkit-image-set(
+            url("{{ 'decoration-#{$collection}-right.webp' | asset_img_url: '300x' }}") 1x,
+            url("{{ 'decoration-#{$collection}-right.webp' | asset_img_url: '600x' }}") 2x
+          );
+        /* prettier-ignore */
+        background-image:
+          image-set(
+            url("{{ 'decoration-#{$collection}-left.webp' | asset_img_url: '300x' }}") 1x,
+            url("{{ 'decoration-#{$collection}-left.webp' | asset_img_url: '600x' }}") 2x
+          ),
+          image-set(
+            url("{{ 'decoration-#{$collection}-right.webp' | asset_img_url: '300x' }}") 1x,
+            url("{{ 'decoration-#{$collection}-right.webp' | asset_img_url: '600x' }}") 2x
+          );
+      }
+
+      @at-root [data-template-type="collection"][data-template-name="jerky"] & {
+        @extend #{$this}__wrapper--jerky;
+      }
+    }
+  }
+
+  &__description {
+    max-width: min(30rem, 90vw);
+    margin: 2em auto;
+    text-align: center;
+    @extend %article-content;
+  }
+}

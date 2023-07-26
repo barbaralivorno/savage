@@ -1,0 +1,124 @@
+.s-featured-recipe {
+  $gap-size: 1.95rem;
+  display: grid;
+  grid-template-columns: repeat(20, 5%);
+
+  @include for-size(phone-only) {
+    grid-template-columns: 1fr;
+  }
+
+  &__picture {
+    width: 100%;
+
+    &--lg {
+      @include for-size(tablet-up) {
+        grid-column: 1 / 13;
+        grid-row: 1 / 1;
+        border-right: $gap-size solid var(--sj-black);
+        border-bottom: $gap-size solid var(--sj-black);
+        align-self: end;
+      }
+
+      @include for-size(phone-only) {
+        margin-bottom: 1.6rem;
+      }
+    }
+
+    &--md {
+      grid-column: 1 / 11;
+      grid-row: 2 / 2;
+      border-right: $gap-size solid var(--sj-black);
+
+      @include for-size(phone-only) {
+        display: none;
+      }
+    }
+
+    &--sm {
+      @include for-size(tablet-up) {
+        grid-column: 11 / 21;
+        grid-row: 2 / 2;
+        margin-top: -$gap-size;
+        z-index: -1;
+        border-right: $gap-size solid var(--sj-black);
+      }
+
+      @include for-size(phone-only) {
+        padding-top: 1.6rem;
+        background-color: var(--sj-white);
+      }
+    }
+  }
+
+  &__group {
+    @include for-size(tablet-up) {
+      grid-column: 13 / 21;
+      grid-row: 1 / 1;
+      align-self: end;
+      border-bottom: $gap-size solid var(--sj-black);
+    }
+
+    @include for-size(phone-only) {
+      padding: 10vw;
+    }
+  }
+
+  &__title {
+    width: 13.13rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1.15rem;
+
+    @include for-size(phone-only) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__info {
+    padding: 3.4rem 1.5rem 4.5rem 1.5rem;
+    background-color: var(--sj-white);
+    color: var(--sj-black);
+
+    @include for-size(tablet-down) {
+      padding: 1rem;
+    }
+
+    &-text {
+      @include secondary-font;
+      line-height: 0.75em;
+      font-size: 4.2rem;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      margin-bottom: 3.4rem;
+      display: block;
+
+      @include for-size(phone-only) {
+        font-size: 3.76rem;
+        font-weight: 800;
+      }
+    }
+
+    > * {
+      width: 16.5rem;
+    }
+  }
+
+  &__view-all-button {
+    border-color: var(--sj-black);
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  &__mobile-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sj-white);
+    color: var(--sj-black);
+    padding: 1.6rem 0 2.2rem 0;
+
+    @include for-size(tablet-up) {
+      display: none;
+    }
+  }
+}

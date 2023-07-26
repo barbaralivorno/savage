@@ -1,0 +1,12 @@
+.picture {
+  display: block;
+
+  &--keep-aspect-ratio {
+    aspect-ratio: var(--sj-picture-aspect-ratio);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}

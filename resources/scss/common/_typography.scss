@@ -1,0 +1,48 @@
+@use "sass:map";
+
+$desktop-font-sizes: (
+  sm: 0.75rem,
+  md: 20px,
+  lg: 4.55rem,
+  xl: 7rem,
+  xxl: 17.5rem,
+);
+$laptop-font-sizes: (
+  sm: 0.75rem,
+  md: 18px,
+  lg: 4.55rem,
+  xl: 7rem,
+  xxl: 17.5rem,
+);
+$phone-font-sizes: (
+  sm: 0.75rem,
+  md: 17px,
+  lg: 4.55rem,
+  xl: 7rem,
+  xxl: 17.5rem,
+);
+
+@mixin primary-font {
+  font-family: "Cartograph CF", monospace;
+}
+
+@mixin secondary-font {
+  font-family: "Saira Condensed", sans-serif;
+  line-height: 0.75em;
+}
+
+@mixin tertiary-font {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+@mixin font-size($size) {
+  font-size: #{map.get($desktop-font-sizes, $size)};
+
+  @include for-size(tablet-down) {
+    font-size: #{map.get($phone-font-sizes, $size)};
+  }
+
+  @include for-size(laptop-only) {
+    font-size: #{map.get($laptop-font-sizes, $size)};
+  }
+}

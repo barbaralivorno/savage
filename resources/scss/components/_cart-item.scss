@@ -1,0 +1,59 @@
+.cart-item {
+  $this: &;
+  display: flex;
+  align-items: center;
+
+  &__picture {
+    width: 30%;
+  }
+
+  &__info {
+    @include secondary-font;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+  }
+
+  &__product-type {
+    font-size: 1.4rem;
+    line-height: 1em;
+  }
+
+  &__price {
+    font-size: 2rem;
+    line-height: 1em;
+    margin: 0.5rem 0;
+  }
+
+  &__remove-button {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    top: -0.1rem;
+    left: -0.6rem;
+
+    &:not(:disabled):hover {
+      color: var(--sj-black);
+      border-color: var(--sj-black);
+    }
+  }
+
+  &__properties {
+    margin-top: 0.25rem;
+    font-size: 80%;
+  }
+
+  &--no-image {
+    #{$this} {
+      &__picture {
+        display: none;
+      }
+
+      &__info {
+        width: 100%;
+        padding-left: 1rem;
+      }
+    }
+  }
+}

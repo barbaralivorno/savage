@@ -1,0 +1,41 @@
+.social-networks-list {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.76rem;
+
+  &__item {
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--sj-white);
+
+    @include for-size(tablet-down) {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+
+    @include for-size(phone-only) {
+      width: auto;
+      height: auto;
+      max-width: 33.3%;
+      flex-grow: 1;
+      aspect-ratio: 1;
+
+      &-logo {
+        width: 50%;
+        height: auto;
+        max-height: 50%;
+        aspect-ratio: 1;
+      }
+    }
+
+    &-link {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

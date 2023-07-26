@@ -1,0 +1,57 @@
+.card-blog-article {
+  &__image-wrapper {
+    width: 38.26vw;
+
+    @include for-size(tablet-down) {
+      width: 100%;
+    }
+  }
+
+  &__summary {
+    flex: 1;
+    padding-left: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    @include for-size(tablet-down) {
+      padding: 0 1.2rem 0 0;
+    }
+  }
+
+  &__title {
+    @include secondary-font;
+    @include font-size(lg);
+    font-weight: 700;
+    padding-right: 2rem;
+    margin-bottom: auto;
+
+    @include for-size(tablet-down) {
+      font-weight: 800;
+      font-size: 3.5rem;
+      margin-bottom: 0;
+      padding: 1rem 0;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    margin-bottom: 1.7rem;
+
+    @include for-size(tablet-down) {
+      padding-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__button {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    @include for-size(tablet-down) {
+      padding: 0.75rem 0.4rem;
+    }
+  }
+}

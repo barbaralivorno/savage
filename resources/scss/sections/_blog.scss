@@ -1,0 +1,26 @@
+.s-blog {
+  &__heading {
+    margin: 5.75rem auto 6.25rem;
+
+    @include for-size(tablet-down) {
+      margin: 2.35rem auto;
+    }
+  }
+
+  &__articles {
+    padding: 0 5.7rem 0 7.15rem;
+
+    @include for-size(tablet-down) {
+      padding: 0 1.5rem;
+    }
+
+    &-item {
+      display: flex;
+      margin-bottom: 4.6rem;
+
+      @include for-size(tablet-down) {
+        flex-direction: column;
+      }
+    }
+  }
+}

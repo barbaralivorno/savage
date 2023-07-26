@@ -1,0 +1,70 @@
+<div class="s-military__intro">
+  <h1 class="s-military__intro-title title title--md">{{ page.title }}</h1>
+  <div class="s-military__intro-description">{{ page.content }}</div>
+  {% render "button" 
+    class: "s-military__intro-button",
+    text: section.settings.button_text,
+    href: section.settings.button_url
+  %}
+</div>
+<div class="s-military__content">
+  <h2 class="s-military__content-title title title--md">{{ section.settings.content_title }}</h2>
+  <div class="s-military__content-logos">
+    {% render "svg",
+      asset: "logo-military-1.svg",
+      class: "s-military__content-logos-img",
+      alt: "Logo",
+      embed: true
+    %}
+    {% render "svg",
+      asset: "logo-military-2.svg",
+      class: "s-military__content-logos-img",
+      alt: "Logo",
+      embed: true
+    %}
+  </div>
+  <ol class="s-military__content-list">
+    {% for block in section.blocks %}
+    <li class="s-military__content-list-item">{{ block.settings.item }}</li>
+  {% endfor %}
+  </ol>
+</div>
+
+{% schema %}
+{
+  "name": "Military",
+  "limit": 1,
+  "tag": "section",
+  "class": "s-military",
+  "settings": [
+    {
+      "id": "button_text",
+      "label": "Button text",
+      "type": "text"
+    },
+    {
+      "id": "button_url",
+      "label": "Button Link",
+      "type": "url"
+    },
+    {
+      "id": "content_title",
+      "label": "Content Title",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "id": "item",
+          "label": "Item",
+          "type": "richtext"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

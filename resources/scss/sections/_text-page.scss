@@ -1,0 +1,13 @@
+.s-text-page {
+  max-width: min(55em, 90vw);
+  padding: 5em 0;
+  margin: auto;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__body {
+    @extend %article-content;
+  }
+}

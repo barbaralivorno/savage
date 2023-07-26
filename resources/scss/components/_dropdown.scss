@@ -1,0 +1,76 @@
+.dropdown {
+  $this: &;
+  position: relative;
+  user-select: none;
+
+  &__button {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0 3.5rem 0.5rem 0;
+    border: none;
+    border-bottom: 2px solid var(--sj-burnt-orange);
+
+    @include for-size(phone-only) {
+      padding-right: 0.5rem;
+    }
+
+    @at-root button#{&}::after {
+      content: "";
+      display: block;
+      background: url('{{ "ui-arrow.svg" | asset_url }}') no-repeat center;
+      background-size: 100% auto;
+      width: 0.85rem;
+      height: 0.85rem;
+      position: absolute;
+      right: 0;
+      top: 11%;
+      transition: transform 350ms;
+
+      @at-root #{$this}--selecting & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__menu {
+    padding: 0.35rem;
+    background-color: var(--sj-black);
+    border: 2px solid var(--sj-burnt-orange);
+    position: absolute;
+    left: 0;
+    top: calc(100% - 2px);
+    min-width: 100%;
+    pointer-events: visible;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 350ms, transform 350ms;
+
+    @include for-size(phone-only) {
+      left: auto;
+      right: 0;
+    }
+
+    @at-root #{$this}--selecting & {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    &-item {
+      &-button {
+        display: block;
+        width: 100%;
+        padding: 0.35rem 0;
+        text-align: center;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        &:not(:disabled):hover {
+          color: var(--sj-burnt-orange);
+        }
+      }
+    }
+  }
+}

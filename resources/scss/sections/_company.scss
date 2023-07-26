@@ -1,0 +1,57 @@
+.s-company {
+  padding-top: 6.25rem;
+
+  @include for-size(phone-only) {
+    padding-top: 3.95rem;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 5rem;
+
+    @include for-size(phone-only) {
+      margin-bottom: 3.6rem;
+      padding: 0 2.5rem;
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    padding: 0 17rem 3.5rem 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+
+    @media (max-width: 1250px) {
+      padding-right: 9rem;
+    }
+
+    @include for-size(tablet-down) {
+      padding: 0 3.2rem 5.3rem;
+    }
+
+    &-logo-decoration {
+      bottom: -9.5rem;
+    }
+  }
+
+  &__description {
+    flex: 1;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__featured-text {
+    @include secondary-font;
+    font-size: 2rem;
+    line-height: 1em;
+    color: var(--sj-burnt-orange);
+    padding-right: 3.85rem;
+
+    @include for-size(tablet-down) {
+      display: none;
+    }
+  }
+}

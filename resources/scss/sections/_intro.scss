@@ -1,0 +1,115 @@
+.s-intro {
+  display: flex;
+  margin-bottom: 4.35rem;
+
+  &__title {
+    font-size: 3.65rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @include for-size(laptop-up) {
+      width: 15.7rem;
+    }
+
+    @include for-size(tablet-down) {
+      font-size: 3.17rem;
+      line-height: 1.3em;
+    }
+
+    strong {
+      @include secondary-font;
+      font-size: 4.2rem;
+
+      @include for-size(tablet-down) {
+        display: block;
+        font-size: 3.76rem;
+      }
+    }
+
+    a {
+      transition: color 350ms;
+
+      &:hover {
+        color: var(--sj-burnt-orange);
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.25rem;
+
+    @include for-size(tablet-down) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__content {
+    @include for-size(laptop-up) {
+      flex: 1;
+      order: 3;
+      padding: 1rem 5.75rem 0 2rem;
+    }
+
+    @include for-size(tablet-down) {
+      padding: 0 5vw;
+      text-align: center;
+      margin-bottom: 3.25rem;
+    }
+  }
+
+  .product-feature-list {
+    align-items: center;
+
+    @include for-size(laptop-up) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      order: 2;
+      padding: 0 1.35rem 0 0.6rem;
+      border-right: 2px solid var(--sj-burnt-orange);
+    }
+
+    @include for-size(tablet-down) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 3.35rem;
+      margin-top: 3.25rem;
+      padding: 0 5vw;
+
+      &__item {
+        text-align: center;
+      }
+    }
+  }
+
+  &__picture {
+    @include for-size(laptop-up) {
+      width: 53.55vw;
+      height: 41.55rem;
+      order: 1;
+    }
+  }
+
+  @include for-size(laptop-up) {
+    background-size: auto 90%;
+    background-repeat: no-repeat;
+    background-position: right top;
+
+    /* prettier-ignore */
+    background-image:
+      -webkit-image-set(
+        url("{{ 'decoration-intro.webp' | asset_img_url: '300x' }}") 1x,
+        url("{{ 'decoration-intro.webp' | asset_img_url: '600x' }}") 2x
+      );
+    /* prettier-ignore */
+    background-image:
+      image-set(
+        url("{{ 'decoration-intro.webp' | asset_img_url: '300x' }}") 1x,
+        url("{{ 'decoration-intro.webp' | asset_img_url: '600x' }}") 2x
+      );
+  }
+
+  @include for-size(tablet-down) {
+    flex-direction: column;
+  }
+}

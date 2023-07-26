@@ -1,0 +1,13 @@
+.section-logo-decoration {
+  width: 42.7vw;
+  max-width: 30.75rem;
+  color: #121212;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+
+  @media (max-width: 1250px) {
+    display: none;
+  }
+}

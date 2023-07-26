@@ -1,0 +1,66 @@
+<div class="s-article__info-wrapper">
+  Posted by 
+  <span class="s-article__info s-article__info-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span itemprop="name">{{ article.author }}</span>
+  </span>
+  <br /> on <span class="s-article__info s-article__info-published-date" itemprop="dateCreated pubdate datePublished">{{ article.published_at | time_tag: format: 'abbreviated_date' }}</span>
+</div>
+{% assign content = article.content | split: "<p>[END_OF_INTRO]</p>" %}
+{% liquid
+  assign content_count = content | size
+  if content_count < 2
+    assign content = article.content | replace_first: "</p>", "</p><p>[END_OF_INTRO]</p>" | split: "<p>[END_OF_INTRO]</p>"
+  endif
+  assign content_media_count = article.metafields.custom.media.value | size
+  if content_media_count == 0
+    assign content_extra_classes = "s-article__body--no-media"
+  endif 
+%}
+<div class="s-article__intro-wrapper s-article__intro--{{ blog.title | downcase }}-blog"">
+  {% render "button-cross",
+    class: "s-article__back-button"
+    aria_label: "Go back"
+    href: blog.url
+  %}
+  <div class="s-article__intro">
+    <h1 class="s-article__intro-title title--sm">{{ article.title }}</h1>
+    <div class="s-article__intro-content">{{ content[0] }}</div>
+  </div>
+  {% render "picture",
+    class: "s-article__intro-image",
+    image: article.image,
+    aspect_ratio: "790 / 632",
+    available_sizes: "790,1580"
+    display_sizes: "(max-width: 767px) 100vw, 54.86vw",
+  %}
+</div>
+<div class="s-article__body-wrapper s-article__body--{{ blog.title | downcase }}-blog {{ content_extra_classes }}">
+  {% if blog.title == "News" %}
+    {% render "article-media-list" %}
+    <div class="s-article__body-text">{{ content[1] }}</div>
+  {% elsif blog.title == "Recipes" %}
+    {% if article.metafields.custom.ingredients != blank %}
+      <div class="s-article__body-ingredients">
+        <h2 class="s-article__body-ingredients-title">Ingredients:</h2>
+        <div class="s-article__body-ingredients-text">{{ article.metafields.custom.ingredients }}</div>
+      </div>
+    {% endif %}
+    {% if article.metafields.custom.directions != blank %}
+      <div class="s-article__body-directions">
+        <h2 class="s-article__body-directions-title">Directions:</h2>
+        <div class="s-article__body-directions-text">{{ article.metafields.custom.directions }}</div>
+      </div>
+    {% endif %}
+    <div class="s-article__body-text">{{ article.content }}</div>
+    {% render "article-media-list" %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "limit": 1,
+  "tag": "section",
+  "class": "s-article"
+}
+{% endschema %}

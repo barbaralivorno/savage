@@ -1,0 +1,22 @@
+.s-subscribe-banner {
+  background-color: var(--sj-burnt-orange);
+  padding: 4.5rem 0;
+
+  @include for-size(phone-only) {
+    padding: 2rem 1rem;
+  }
+
+  &__image {
+    width: 75%;
+    display: block;
+    margin: auto;
+
+    @include for-size(phone-only) {
+      width: 90%;
+    }
+
+    .image {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+[data-template-name="contact"] {
+  overflow-x: hidden;
+}
+
+.s-contact {
+  padding-top: 6.75rem;
+  position: relative;
+
+  @include for-size(tablet-down) {
+    padding-top: 3.5rem;
+  }
+
+  &__title {
+    margin-bottom: 4.15rem;
+    text-align: center;
+
+    @include for-size(tablet-down) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__form {
+    padding: 0 13.09rem;
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+
+    @include for-size(tablet-down) {
+      padding: 0 3rem;
+      margin-bottom: 3rem;
+    }
+
+    @include for-size(phone-only) {
+      margin-bottom: 0;
+    }
+
+    &-fields-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2.25rem;
+
+      &-label {
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      &-input {
+        height: 1.5rem;
+        border: none;
+        border-bottom: 2px solid var(--sj-burnt-orange);
+        color: var(--sj-white);
+
+        @include for-size(tablet-down) {
+          height: 2.4rem;
+        }
+
+        &.text-area {
+          resize: vertical;
+        }
+      }
+    }
+
+    &-button {
+      width: 13.45rem;
+      margin: 4rem auto 0;
+      display: block;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+
+      @include for-size(tablet-down) {
+        margin-top: 2.76rem;
+      }
+    }
+  }
+
+  &__logo-decoration {
+    bottom: -10.5rem;
+    right: -2.5rem;
+  }
+}

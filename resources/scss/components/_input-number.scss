@@ -1,0 +1,55 @@
+.input-number {
+  $this: &;
+  width: 6.65rem;
+  height: 1.8rem;
+  display: flex;
+  border: 2px solid var(--sj-burnt-orange);
+  border-radius: 35px;
+
+  &--small {
+    width: 4.4rem;
+    height: 1.2rem;
+
+    #{$this} {
+      &__button {
+        width: 1.65rem;
+      }
+    }
+  }
+
+  &--white {
+    border-color: var(--sj-white);
+
+    #{$this} {
+      &__button:hover {
+        color: var(--sj-white);
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__input {
+    @include secondary-font;
+    width: 100%;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include primary-font;
+    width: 2rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: color 200ms;
+    line-height: 1em;
+
+    &:hover {
+      color: var(--sj-burnt-orange);
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.input-select {
+  $this: &;
+  @extend .dropdown;
+
+  &__button,
+  &__native-select {
+    @extend .dropdown__button;
+  }
+
+  &__dropdown {
+    @extend .dropdown__menu;
+  }
+
+  &__option {
+    @extend .dropdown__menu-item;
+
+    &-button {
+      @extend .dropdown__menu-item-button;
+    }
+  }
+
+  &__native-select {
+    background-image: url('{{ "ui-arrow.svg" | asset_url }}');
+    background-repeat: no-repeat;
+    background-position: top 25% right;
+    background-size: 0.85rem 0.4rem;
+
+    &:active {
+      background-color: transparent;
+    }
+  }
+
+  &--selecting {
+    @extend .dropdown--selecting;
+  }
+}

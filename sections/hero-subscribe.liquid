@@ -1,0 +1,42 @@
+<a href="{{section.settings.url}}">
+  {% render "picture", 
+    class: "s-subscribe-hero__left-image",
+    image: section.settings.left_image,
+    available_sizes: "720, 960",
+    display_sizes: "(max-width: 767px) 100vw, 45vw",
+    fit: "cover"
+  %}
+</a>
+{% render "picture", 
+  class: "s-subscribe-hero__right-image",
+  image: section.settings.right_image,
+  available_sizes: "720, 960",
+  display_sizes: "(max-width: 767px) 100vw, 45vw",
+  fit: "cover"
+%}
+
+
+{% schema %}
+{
+  "name": "Hero",
+  "class": "s-subscribe-hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "id": "url",
+      "label": "Link",
+      "type": "url"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    }
+  ]
+}
+{% endschema %}

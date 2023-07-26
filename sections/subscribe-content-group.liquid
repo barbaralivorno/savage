@@ -1,0 +1,90 @@
+{% render "picture", 
+  class: "s-subscribe-content-group__image",
+  image: section.settings.image,
+  available_sizes: "720, 960",
+  display_sizes: "45vw",
+  fit: "cover"
+%}
+<div class="s-subscribe-content-group__right-column">
+  <h2 class="s-subscribe-content-group__title">
+    {{ section.settings.title }}
+  </h2>
+  <div class="s-subscribe-content-group__text">
+    {{ section.settings.text }}
+  </div>
+  {% if section.blocks.size > 0 %}
+  <ul class="s-subscribe-content-group__benefits">
+    {% for block in section.blocks %}
+      <li class="s-subscribe-content-group__benefits-item">
+        {% render "picture",
+          class: "s-subscribe-content-group__benefits-image",
+          image: block.settings.icon,
+          aspect_ratio: 1,
+          available_sizes: "500"
+          display_sizes: "250px"
+        %}
+        <div class="s-subscribe-content-group__benefits-text">{{block.settings.text}}</div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+  {% render "button" 
+    class: "s-subscribe-content-group__button",
+    text: section.settings.button_text,
+    href: section.settings.url,
+    variant: "orange"
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Content Group",
+  "class": "s-subscribe-content-group",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "id": "title",
+      "label": "Title",
+      "type": "text"
+    },
+    {
+      "id": "text",
+      "label": "Text",
+      "type": "richtext"
+    },
+    {
+      "id": "button_text",
+      "label": "Button Text",
+      "type": "text"
+    },
+    {
+      "id": "button_url",
+      "label": "Button Link",
+      "type": "url"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "id": "icon",
+          "type": "image_picker",
+          "label": "Benefit Icon"
+        },
+        {
+          "id": "text",
+          "label": "Benefit Text",
+          "type": "richtext"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

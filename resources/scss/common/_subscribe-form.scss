@@ -1,0 +1,41 @@
+.subscribe-form {
+  $this: &;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    margin-bottom: 1.85rem;
+    display: block;
+
+    @include for-size(phone-only) {
+      font-size: 1.17rem;
+      margin-bottom: 0.95rem;
+    }
+  }
+
+  &__input {
+    display: block;
+    background-color: var(--sj-white);
+    margin-bottom: 0.9rem;
+    padding: 0.6rem;
+    font-size: 1.1rem;
+    color: #c4c4c4;
+    width: 100%;
+
+    &::placeholder {
+      @include tertiary-font;
+      font-size: 1.1rem;
+      color: #c4c4c4;
+      text-transform: uppercase;
+    }
+  }
+
+  &__button {
+    padding: 0.5rem 2rem !important;
+
+    & + #{$this}__message {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.title {
+  @include secondary-font;
+
+  &--sm {
+    @include font-size(lg);
+    font-weight: 700;
+    display: block;
+
+    @include for-size(phone-only) {
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+  }
+
+  &--md {
+    @include font-size(xl);
+    font-weight: 700;
+    display: block;
+
+    @include for-size(phone-only) {
+      font-size: 3.76rem;
+      font-weight: 800;
+    }
+  }
+
+  &--lg {
+    font-size: 14vw;
+    font-weight: 800;
+    text-align: center;
+
+    @include for-size(tablet-down) {
+      font-weight: 700;
+      font-size: 20vw;
+    }
+  }
+}
